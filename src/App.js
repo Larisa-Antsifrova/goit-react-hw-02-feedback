@@ -13,10 +13,10 @@ class App extends Component {
   };
 
   countFeedback = event => {
-    const { id } = event.target;
+    const { name } = event.currentTarget;
 
     this.setState(prevState => ({
-      [id]: prevState[id] + 1,
+      [name]: prevState[name] + 1,
     }));
   };
 
