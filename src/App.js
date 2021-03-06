@@ -21,7 +21,14 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, value) => acc + value);
+    // If we know that no new fields for feedback category will be added
+    // Or if we know that new other fields might be added, but those fields should not be included in total
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+
+    // If we expect that new fields for feedback category might be added
+    // And those fields should be included in total
+    // return Object.values(this.state).reduce((acc, value) => acc + value);
   };
 
   countPositiveFeedbackPercentage = () => {
