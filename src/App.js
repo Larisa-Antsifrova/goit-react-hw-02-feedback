@@ -3,6 +3,7 @@ import Section from './components/Section';
 import Statistics from './components/Statistics';
 import FeedbackOptions from './components/FeedbackOptions';
 import Notification from './components/Notification';
+import PageTitle from './components/PageTitle';
 
 class App extends Component {
   state = {
@@ -36,7 +37,7 @@ class App extends Component {
 
     return (
       <>
-        <h1>Espresso Cafe Stats</h1>
+        <PageTitle title="Espresso Cafe Stats" />
         <Section title="Please leave your feedback">
           <FeedbackOptions
             options={['good', 'neutral', 'bad']}
