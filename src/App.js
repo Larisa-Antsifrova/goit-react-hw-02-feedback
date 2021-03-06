@@ -13,6 +13,7 @@ class App extends Component {
 
   countFeedback = event => {
     const { id } = event.target;
+
     this.setState(prevState => ({
       [id]: prevState[id] + 1,
     }));
@@ -35,7 +36,8 @@ class App extends Component {
 
     return (
       <>
-        <Section title="Espresso Cafe Stats">
+        <h1>Espresso Cafe Stats</h1>
+        <Section title="Please leave your feedback">
           <FeedbackOptions
             options={['good', 'neutral', 'bad']}
             onLeaveFeedback={this.countFeedback}
