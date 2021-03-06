@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Section from './components/Section';
+import Statistics from './components/Statistics';
+import FeedbackOptions from './components/FeedbackOptions';
 
 class App extends Component {
   state = {
@@ -31,23 +34,21 @@ class App extends Component {
 
     return (
       <>
-        <h1>Espresso Cafe Stats</h1>
-        <p>Leave your feedback</p>
-        <button id="good" onClick={this.countFeedback}>
-          Good
-        </button>
-        <button id="neutral" onClick={this.countFeedback}>
-          Neutral
-        </button>
-        <button id="bad" onClick={this.countFeedback}>
-          Bad
-        </button>
-        <p>Stats</p>
-        <p>Good: {good}</p>
-        <p>Neutral: {neutral}</p>
-        <p>Bad: {bad}</p>
-        <p>Total: {total}</p>
-        <p>Positive feedback: {positivePercentage}%</p>
+        <Section title="Espresso Cafe Stats">
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.countFeedback}
+          />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={positivePercentage}
+          />
+        </Section>
       </>
     );
   }
