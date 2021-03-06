@@ -7,6 +7,13 @@ class App extends Component {
     bad: 0,
   };
 
+  registerFeedback = event => {
+    const { id } = event.target;
+    this.setState(prevState => ({
+      [id]: prevState[id] + 1,
+    }));
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
 
@@ -14,9 +21,15 @@ class App extends Component {
       <>
         <h1>Espresso Cafe Stats</h1>
         <p>Leave your feedback</p>
-        <button>Good</button>
-        <button>Neutral</button>
-        <button>Bad</button>
+        <button id="good" onClick={this.registerFeedback}>
+          Good
+        </button>
+        <button id="neutral" onClick={this.registerFeedback}>
+          Neutral
+        </button>
+        <button id="bad" onClick={this.registerFeedback}>
+          Bad
+        </button>
         <p>Stats</p>
         <p>Good: {good}</p>
         <p>Neutral: {neutral}</p>
